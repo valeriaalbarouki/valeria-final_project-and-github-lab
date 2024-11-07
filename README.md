@@ -1,4 +1,4 @@
-# valeria-preposal-and-github-lab
+# valeria-proposal-and-github-lab
 
 # Preproposal
 
