@@ -1,5 +1,3 @@
--- Credits go to CS50: Introduction to Game Development :)
-
 love.graphics.setDefaultFilter('nearest', 'nearest')
 require 'src/Dependencies'
 
