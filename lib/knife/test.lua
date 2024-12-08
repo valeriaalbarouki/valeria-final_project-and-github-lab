@@ -1,6 +1,5 @@
 local test, testAssert, testError
 
--- Create a node representing a test section
 local function createNode (parent, description, process)
     return setmetatable({
         parent = parent,
@@ -14,19 +13,16 @@ local function createNode (parent, description, process)
     }, { __call = test })
 end
 
--- Run a node
 local function runNode (node)
     node.currentNodeIndex = 0
     return node:process()
 end
 
--- Get the root node for a given node
 local function getRootNode (node)
     local parent = node.parent
     return parent and getRootNode(parent) or node
 end
 
--- Update the active child node of the given node
 local function updateActiveNode (node, description, process)
     local activeNodeIndex = node.activeNodeIndex
     local nodes = node.nodes
@@ -44,13 +40,11 @@ local function updateActiveNode (node, description, process)
     return activeNode
 end
 
--- Run the active child node of the given node
 local function runActiveNode (node, description, process)
     local activeNode = updateActiveNode(node, description, process)
     return runNode(activeNode)
 end
 
--- Get ancestors of a node, including the node
 local function getAncestors (node)
     local ancestors = { node }
     for ancestor in function () return node.parent end do
@@ -60,7 +54,6 @@ local function getAncestors (node)
     return ancestors
 end
 
--- Print a message describing one execution path in the test scenario
 local function printScenario (node)
     local ancestors = getAncestors(node)
     for i = #ancestors, 1, -1 do
@@ -69,7 +62,6 @@ local function printScenario (node)
     end
 end
 
--- Print a message and stop the test scenario when an assertion fails
 local function failAssert (node, description, message)
     io.stderr:write(message or '')
     io.stderr:write('\n\n')
@@ -79,7 +71,6 @@ local function failAssert (node, description, message)
     error(message or '', 2)
 end
 
--- Create a branch node for a test scenario
 test = function (node, description, process)
     node.currentNodeIndex = node.currentNodeIndex + 1
     if node.currentNodeIndex == node.activeNodeIndex then
@@ -87,7 +78,6 @@ test = function (node, description, process)
     end
 end
 
--- Test an assertion
 testAssert = function (self, value, description)
     if not value then
         return failAssert(self, description, 'Test failed: assertion failed')
@@ -95,14 +85,12 @@ testAssert = function (self, value, description)
     return value
 end
 
--- Expect function f to fail
 testError = function (self, f, description)
     if pcall(f) then
         return failAssert(self, description, 'Test failed: expected error')
     end
 end
 
--- Create the root node for a test scenario
 local function T (description, process)
     local root = createNode(nil, description, process)
 
@@ -116,7 +104,6 @@ local function T (description, process)
     return root
 end
 
--- Run any other files passed from CLI.
 if arg and arg[0] and arg[0]:gmatch('test.lua') then
     _G.T = T
     for i = 1, #arg do
