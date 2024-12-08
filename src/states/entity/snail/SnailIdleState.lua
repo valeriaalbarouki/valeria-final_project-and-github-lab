@@ -23,8 +23,7 @@ function SnailIdleState:update(dt)
         self.snail:changeState('moving')
     end
 
-    -- calculate difference between snail and player on X axis
-    -- and only chase if <= 5 tiles
+  
     local diffX = math.abs(self.player.x - self.snail.x)
 
     if diffX < 5 * TILE_SIZE then
