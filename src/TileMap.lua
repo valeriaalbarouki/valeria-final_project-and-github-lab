@@ -6,17 +6,10 @@ function TileMap:init(width, height)
     self.tiles = {}
 end
 
---[[
-    If our tiles were animated, this is potentially where we could iterate over all of them
-    and update either per-tile or per-map animations for appropriately flagged tiles!
-]]
 function TileMap:update(dt)
 
 end
 
---[[
-    Returns the x, y of a tile given an x, y of coordinates in the world space.
-]]
 function TileMap:pointToTile(x, y)
     if x < 0 or x > self.width * TILE_SIZE or y < 0 or y > self.height * TILE_SIZE then
         return nil
