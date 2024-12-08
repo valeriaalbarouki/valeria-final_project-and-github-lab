@@ -1,10 +1,7 @@
--- Event module
 local Event = {}
 
--- Event handler registry
 Event.handlers = {}
 
--- Remove an event handler from the registry
 local function remove (self)
     if not self.isRegistered then
         return self
@@ -25,7 +22,6 @@ local function remove (self)
     return self
 end
 
--- Insert an event handler into the registry
 local function register (self)
     if self.isRegistered then
         return self
@@ -40,7 +36,6 @@ local function register (self)
     return self
 end
 
--- Create an event handler
 local function Handler (name, callback)
     return {
         name = name,
@@ -51,14 +46,10 @@ local function Handler (name, callback)
     }
 end
 
-
-
--- Create and register a new event handler
 function Event.on (name, callback)
     return register(Handler(name, callback))
 end
 
--- Dispatch an event
 function Event.dispatch (name, ...)
     local handler = Event.handlers[name]
 
@@ -75,7 +66,6 @@ local function isCallable (value)
         getmetatable(value) and getmetatable(value).__call
 end
 
--- Inject a dispatcher into a table.
 local function hookDispatcher (t, key)
     local original = t[key]
 
@@ -91,9 +81,6 @@ local function hookDispatcher (t, key)
     end
 end
 
--- Inject dispatchers into a table. Examples:
--- Event.hook(love.handlers)
--- Event.hook(love, { 'load', 'update', 'draw' })
 function Event.hook (t, keys)
     if keys then
         for _, key in ipairs(keys) do
