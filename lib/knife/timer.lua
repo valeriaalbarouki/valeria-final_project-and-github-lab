@@ -1,6 +1,5 @@
 local Timer = {}
 
--- group management
 
 local function detach (group, item)
     local index = item.index
@@ -24,7 +23,6 @@ local function attach (group, item)
     item.lastGroup = group
 end
 
--- instance update methods
 
 local function updateContinuous (self, dt)
     local cutoff = self.cutoff
@@ -96,7 +94,6 @@ local function updateTween (self, dt)
 
 end
 
--- shared instance methods
 
 local defaultGroup = {}
 
@@ -142,7 +139,6 @@ local function ease (self, easeField)
     return self
 end
 
--- tweening helper functions
 
 local function planTween (definition)
     local plan = {}
@@ -168,7 +164,6 @@ local function easeLinear (elapsed, initial, change, duration)
     return change * elapsed / duration + initial
 end
 
--- instance initializer
 
 local function initialize (timer)
     timer.elapsed = 0
@@ -181,7 +176,6 @@ local function initialize (timer)
     return timer
 end
 
--- static api
 
 function Timer.after (delay, callback)
     return initialize {
