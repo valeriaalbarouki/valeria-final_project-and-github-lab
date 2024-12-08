@@ -74,7 +74,7 @@ gFrames = {
     ['creatures'] = GenerateQuads1(gTextures['creatures'], 16, 16)
 }
 
--- these need to be added after gFrames is initialized because they refer to gFrames from within
+
 gFrames['tilesets'] = GenerateTileSets(gFrames['tiles'], 
     TILE_SETS_WIDE, TILE_SETS_TALL, TILE_SET_WIDTH, TILE_SET_HEIGHT)
 
