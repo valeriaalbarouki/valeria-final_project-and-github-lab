@@ -95,7 +95,7 @@ Short answers for the below questions suffice. If you want to alter your plan fo
 - 3 levels/game mode
 - Powerups
 - Background graphics
-- 
+- Changed character (Nezuko from Demon Slayer)
 
 #### What have you not done for your project yet?
 
@@ -109,4 +109,9 @@ Short answers for the below questions suffice. If you want to alter your plan fo
 - Graphics being blurry (has been fixed!)
 - Game not running due to files being misplaced
 - Having to learn LUA from scratch
+
+####Side Note
+We used CS50's Game Development video and Super Mario Bros Programming Tutorial - CS50's Intro to Game Development (linked below) as a reference and for some inspiration
+- https://youtu.be/Silz6e6rfBs?si=vyZD8z79ufPX8lGA
+- https://youtu.be/_cPwFo--1LA?si=q9NGwHg6LqzGuqQV
 
