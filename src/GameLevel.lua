@@ -6,9 +6,6 @@ function GameLevel:init(entities, objects, tilemap)
     self.tileMap = tilemap
 end
 
---[[
-    Remove all nil references from tables in case they've set themselves to nil.
-]]
 function GameLevel:clear()
     for i = #self.objects, 1, -1 do
         if not self.objects[i] then
