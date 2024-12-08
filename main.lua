@@ -1,3 +1,4 @@
+[[ Credits go to CS50's Game Development for inspiration! :) ]]
 love.graphics.setDefaultFilter('nearest', 'nearest')
 require 'src/Dependencies'
 
@@ -6,10 +7,10 @@ udp = socket.udp()
 udp:setsockname('*', 12345)
 udp:settimeout(0)
 
-local entity -- entity is what we'll be controlling
-local updaterate = 0.1 -- how long to wait, in seconds, before requesting an update
+local entity 
+local updaterate = 0.1 
 
-local world = {} -- the empty world-state
+local world = {} 
 local t
 
 function love.load()
@@ -30,10 +31,6 @@ function love.load()
         ['play'] = function() return PlayState() end
     }
     gStateMachine:change('start')
-
-    -- gSounds['music']:setLooping(true)
-    -- gSounds['music']:setVolume(0.5)
-    -- gSounds['music']:play()
 
     love.keyboard.keysPressed = {}
 end
