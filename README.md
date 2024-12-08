@@ -19,7 +19,7 @@ No questions :)
 
 ## What will (likely) be the title of your project?
 
-Pye Mario Track (for now)
+Mario Pye Track (for now)
 
 ## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
 
@@ -95,7 +95,7 @@ Short answers for the below questions suffice. If you want to alter your plan fo
 - 3 levels/game mode
 - Powerups
 - Background graphics
-- Changed character (Nezuko from Demon Slayer)
+- Changed character 
 
 #### What have you not done for your project yet?
 
