@@ -1,4 +1,5 @@
 [[ Credits go to CS50's Game Development for inspiration! :) ]]
+
 love.graphics.setDefaultFilter('nearest', 'nearest')
 require 'src/Dependencies'
 
