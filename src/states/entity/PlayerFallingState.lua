@@ -15,15 +15,15 @@ function PlayerFallingState:update(dt)
     self.player.dy = self.player.dy + self.gravity
     self.player.y = self.player.y + (self.player.dy * dt)
 
-    -- look at two tiles below our feet and check for collisions
+   
     local tileBottomLeft = self.player.map:pointToTile(self.player.x + 10, self.player.y + self.player.height)
     local tileBottomRight = self.player.map:pointToTile(self.player.x + self.player.width - 10, self.player.y + self.player.height)
 
-    -- if we get a collision beneath us, go into either walking or idle
+   
     if (tileBottomLeft and tileBottomRight) and (tileBottomLeft:collidable() or tileBottomRight:collidable()) then
         self.player.dy = 0
         
-        -- set the player to be walking or idle on landing depending on input
+       
         if love.keyboard.isDown('left') or love.keyboard.isDown('right') then
             self.player:changeState('walking')
         else
@@ -32,12 +32,12 @@ function PlayerFallingState:update(dt)
 
         self.player.y = (tileBottomLeft.y - 1) * TILE_SIZE - self.player.height
     
-    -- go back to start if we fall below the map boundary
+   
     elseif self.player.y > VIRTUAL_HEIGHT then
         gSounds['death']:play()
         gStateMachine:change('start')
     
-    -- check side collisions and reset position
+   
     elseif love.keyboard.isDown('left') and self.player.playernum == 1 then
         self.player.direction = 'left'
         self.player.x = self.player.x - PLAYER_WALK_SPEED * dt
@@ -59,7 +59,7 @@ function PlayerFallingState:update(dt)
         self.player:changeState('attack')
     end
 
-    -- check if we've collided with any collidable game objects
+   
     for k, object in pairs(self.player.level.objects) do
         if object:collides(self.player) then
             if object.solid then
@@ -78,7 +78,7 @@ function PlayerFallingState:update(dt)
         end
     end
 
-    -- check if we've collided with any entities and kill them if so
+  
     for k, entity in pairs(self.player.level.entities) do
         if entity:collides(self.player) then
             gSounds['kill']:play()
