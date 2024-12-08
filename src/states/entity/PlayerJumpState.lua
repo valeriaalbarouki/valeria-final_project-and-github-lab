@@ -20,23 +20,23 @@ function PlayerJumpState:update(dt)
     self.player.dy = self.player.dy + self.gravity
     self.player.y = self.player.y + (self.player.dy * dt)
 
-    -- go into the falling state when y velocity is positive
+   
     if self.player.dy >= 0 then
         self.player:changeState('falling')
     end
 
     self.player.y = self.player.y + (self.player.dy * dt)
 
-    -- look at two tiles above our head and check for collisions; 3 pixels of leeway for getting through gaps
+  
     local tileLeft = self.player.map:pointToTile(self.player.x + 10, self.player.y)
     local tileRight = self.player.map:pointToTile(self.player.x + self.player.width - 10, self.player.y)
 
-    -- if we get a collision up top, go into the falling state immediately
+  
     if (tileLeft and tileRight) and (tileLeft:collidable() or tileRight:collidable()) then
         self.player.dy = 0
         self.player:changeState('falling')
 
-    -- else test our sides for blocks
+   
     elseif love.keyboard.isDown('left') and self.player.playernum == 1 then
         self.player.direction = 'left'
         self.player.x = self.player.x - PLAYER_WALK_SPEED * dt
@@ -53,13 +53,11 @@ function PlayerJumpState:update(dt)
         self.player.direction = 'right'
         self.player.x = self.player.x + PLAYER_WALK_SPEED * dt
         self.player:checkRightCollisions(dt)
-    -- elseif love.keyboard.isDown('space') then 
-    --     PREV_STATE = 'jump'
-    --     self.player:changeState('attack')
+   
     end
 
 
-    -- check if we've collided with any collidable game objects
+ 
     for k, object in pairs(self.player.level.objects) do
         if object:collides(self.player) then
             if object.solid then
@@ -75,7 +73,7 @@ function PlayerJumpState:update(dt)
         end
     end
 
-    -- check if we've collided with any entities and die if so
+   
     for k, entity in pairs(self.player.level.entities) do
         if entity:collides(self.player) then
             gSounds['death']:play()
