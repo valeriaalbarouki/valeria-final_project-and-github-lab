@@ -14,8 +14,7 @@ end
 function SnailChasingState:update(dt)
     self.snail.currentAnimation:update(dt)
 
-    -- calculate difference between snail and player on X axis
-    -- and only chase if <= 5 tiles
+   
     local diffX = math.abs(self.player.x - self.snail.x)
 
     if diffX > 5 * TILE_SIZE then
@@ -24,7 +23,7 @@ function SnailChasingState:update(dt)
         self.snail.direction = 'left'
         self.snail.x = self.snail.x - SNAIL_MOVE_SPEED * dt
 
-        -- stop the snail if there's a missing tile on the floor to the left or a solid tile directly left
+       
         local tileLeft = self.tilemap:pointToTile(self.snail.x, self.snail.y)
         local tileBottomLeft = self.tilemap:pointToTile(self.snail.x, self.snail.y + self.snail.height)
 
@@ -35,7 +34,7 @@ function SnailChasingState:update(dt)
         self.snail.direction = 'right'
         self.snail.x = self.snail.x + SNAIL_MOVE_SPEED * dt
 
-        -- stop the snail if there's a missing tile on the floor to the right or a solid tile directly right
+      
         local tileRight = self.tilemap:pointToTile(self.snail.x + self.snail.width, self.snail.y)
         local tileBottomRight = self.tilemap:pointToTile(self.snail.x + self.snail.width, self.snail.y + self.snail.height)
 
