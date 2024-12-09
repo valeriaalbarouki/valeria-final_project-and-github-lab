@@ -114,7 +114,21 @@ VIDEO PORTION OF FINAL PROJECT
 - https://youtu.be/eiIfKs8zhbg?si=gdg7J6jbrYCVMIL6
 
 !!!!Side Note!!!!
+Credits & Assets 
+-
+
 We used CS50's Game Development video and Super Mario Bros Programming Tutorial - CS50's Intro to Game Development (linked below) as a reference and for some inspiration
 - https://youtu.be/Silz6e6rfBs?si=vyZD8z79ufPX8lGA
 - https://youtu.be/_cPwFo--1LA?si=q9NGwHg6LqzGuqQV
+  
+RPG SPRITES USED
+-
+- https://www.spriters-resource.com/
 
+SOUNDS & MUSIC USED
+-
+- https://opengameart.org/art-search-advanced?keys=&field_art_type_tid%5B%5D=13&sort_by=count&sort_order=DESC
+
+GRAPHICS USED (besides rpg character)
+- 
+- 
