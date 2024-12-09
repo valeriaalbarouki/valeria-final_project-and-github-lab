@@ -110,6 +110,9 @@ Short answers for the below questions suffice. If you want to alter your plan fo
 - Game not running due to files being misplaced
 - Having to learn LUA from scratch
 
+VIDEO PORTION OF FINAL PROJECT 
+- https://youtu.be/eiIfKs8zhbg?si=gdg7J6jbrYCVMIL6
+
 !!!!Side Note!!!!
 We used CS50's Game Development video and Super Mario Bros Programming Tutorial - CS50's Intro to Game Development (linked below) as a reference and for some inspiration
 - https://youtu.be/Silz6e6rfBs?si=vyZD8z79ufPX8lGA
